@@ -6,13 +6,12 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
-use FOS\UserBundle\Entity\User as BaseUser;
-
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ApiResource
+ * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
  */
-class User
+class Product
 {
     /**
      * @ORM\Id
@@ -21,26 +20,25 @@ class User
      */
     private $id;
 
-
     /**
-     * @ORM\Column(type="string", name="last_name")
+     * @ORM\Column(type="string", name="name")
      */
-    private $lastName;
+    private $name;
 
     /**
      * @return mixed
      */
-    public function getLastName()
+    public function getName()
     {
-        return $this->lastName;
+        return $this->name;
     }
 
     /**
-     * @param mixed $lastName
+     * @param mixed $name
      */
-    public function setLastName($lastName)
+    public function setName($name)
     {
-        $this->lastName = $lastName;
+        $this->name = $name;
     }
 
 

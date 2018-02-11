@@ -1,4 +1,8 @@
 framework:
+
+    templating:
+        engines: ['twig']
+
     secret: '%env(APP_SECRET)%'
     #default_locale: en
     #csrf_protection: ~
@@ -28,3 +32,11 @@ framework:
 
         # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
         #app: cache.adapter.apcu
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: App\Entity\User
+    from_email:
+        address: maloba.eric@gmail.com
+        sender_name: maloba.eric@gmail.com
