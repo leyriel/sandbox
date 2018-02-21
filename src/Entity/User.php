@@ -6,24 +6,28 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
-use FOS\UserBundle\Entity\User as BaseUser;
+use FOS\UserBundle\Model\User as BaseUser;
 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ApiResource(attributes={
+ *     "normalization_context"={"groups"={"user", "user-read"}},
+ *     "denormalization_context"={"groups"={"user", "user-write"}}
+ * })
  */
-class User
+class User extends BaseUser
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
 
     /**
-     * @ORM\Column(type="string", name="last_name")
+     * @ORM\Column(type="string", length=255, name="last_name")
      */
     private $lastName;
 

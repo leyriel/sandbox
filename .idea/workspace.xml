@@ -8,7 +8,10 @@
       <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
       <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" afterPath="$PROJECT_DIR$/config/bundles.php" />
+      <change beforePath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" />
       <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" afterPath="$PROJECT_DIR$/config/routes.yaml" />
+      <change beforePath="$PROJECT_DIR$/config/routes/api_platform.yaml" afterPath="$PROJECT_DIR$/config/routes/api_platform.yaml" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" afterPath="$PROJECT_DIR$/src/Entity/User.php" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" afterPath="$PROJECT_DIR$/symfony.lock" />
     </list>
@@ -24,21 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+            <state relative-caret-position="288">
+              <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
               <folding>
                 <element signature="e#30#74#0#PHP" expanded="true" />
               </folding>
@@ -49,9 +42,57 @@
       <file leaf-file-name="framework.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+            <state relative-caret-position="380">
+              <caret line="37" column="23" lean-forward="false" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="e#30#62#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccessToken.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/AccessToken.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <element signature="e#30#62#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RefreshToken.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/RefreshToken.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="e#30#62#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthCode.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Entity/AuthCode.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <element signature="e#30#62#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,8 +100,8 @@
       <file leaf-file-name="Product.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
               <folding>
                 <element signature="e#30#74#0#PHP" expanded="true" />
               </folding>
@@ -82,7 +123,17 @@
         <entry file="file://$PROJECT_DIR$/config/routes.yaml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
-              <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+              <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api_platform.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/api_platform.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -98,9 +149,14 @@
       <list>
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/config/routes.yaml" />
+        <option value="$PROJECT_DIR$/config/packages/api_platform.yaml" />
         <option value="$PROJECT_DIR$/src/Entity/Product.php" />
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/config/packages/framework.yaml" />
+        <option value="$PROJECT_DIR$/src/Entity/AccessToken.php" />
+        <option value="$PROJECT_DIR$/src/Entity/RefreshToken.php" />
+        <option value="$PROJECT_DIR$/src/Entity/AuthCode.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Client.php" />
       </list>
     </option>
   </component>
@@ -214,6 +270,8 @@
       <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/templating" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/oauth-server-bundle" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/oauth2-php" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -239,24 +297,12 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="sandbox" type="b2602c69:ProjectViewProjectNode" />
               <item name="sandbox" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="sandbox" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sandbox" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="sandbox" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sandbox" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="packages" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="sandbox" type="b2602c69:ProjectViewProjectNode" />
@@ -273,6 +319,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,18 +355,19 @@
       <updated>1518098134720</updated>
       <workItem from="1518098136725" duration="1265000" />
       <workItem from="1518101506932" duration="4851000" />
-      <workItem from="1518199184978" duration="1060000" />
+      <workItem from="1518199184978" duration="8430000" />
+      <workItem from="1519237796642" duration="345000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7176000" />
+    <option name="totallyTimeSpent" value="14891000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="929" extended-state="6" />
+    <frame x="257" y="30" width="1857" height="937" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15148248" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12884097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -350,11 +398,102 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+          <folding>
+            <element signature="e#30#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="37" column="23" lean-forward="false" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/AccessToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#30#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/RefreshToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#30#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/AuthCode.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#30#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+          <folding>
+            <element signature="e#30#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/bundles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/api_platform.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#30#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -402,21 +541,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="e#30#74#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="432">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -428,10 +556,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/translation.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/swiftmailer.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/api_platform.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        <state relative-caret-position="270">
+          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+          <folding>
+            <element signature="e#30#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
           <folding>
             <element signature="e#30#74#0#PHP" expanded="true" />
           </folding>
@@ -440,17 +615,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        <state relative-caret-position="380">
+          <caret line="37" column="23" lean-forward="false" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/src/Entity/Client.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="306">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#30#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/AccessToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#30#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/RefreshToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#30#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/AuthCode.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#30#62#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
