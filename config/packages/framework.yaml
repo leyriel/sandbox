@@ -35,7 +35,7 @@ framework:
 
 fos_user:
     db_driver: orm
-    firewall_name: main
+    firewall_name: api
     user_class: App\Entity\User
     from_email:
         address: maloba.eric@gmail.com
@@ -43,9 +43,9 @@ fos_user:
 
 fos_oauth_server:
     db_driver: orm
-    client_class:        AppBundle\Entity\Client
-    access_token_class:  AppBundle\Entity\AccessToken
-    refresh_token_class: AppBundle\Entity\RefreshToken
-    auth_code_class:     AppBundle\Entity\AuthCode
+    client_class:        App\Entity\Client
+    access_token_class:  App\Entity\AccessToken
+    refresh_token_class: App\Entity\RefreshToken
+    auth_code_class:     App\Entity\AuthCode
     service:
-        user_provider: fos_user.user_manager
+        user_provider: fos_user.user_provider.username

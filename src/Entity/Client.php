@@ -10,8 +10,17 @@ use FOS\OAuthServerBundle\Entity\Client as BaseClient;
  */
 class Client extends BaseClient
 {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     protected $id;
 
-    protected $name;
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
 
 }

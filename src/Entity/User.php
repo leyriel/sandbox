@@ -25,7 +25,6 @@ class User extends BaseUser
      */
     protected $id;
 
-
     /**
      * @ORM\Column(type="string", length=255, name="last_name")
      */
