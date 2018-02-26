@@ -4,4 +4,10 @@
 api:
     resource: '.'
     type: 'api_platform'
-    prefix: '/api' # Opti
+    prefix: '/api'
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
