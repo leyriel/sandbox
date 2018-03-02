@@ -1,4 +1,18 @@
 api_platform:
+    title: 'SandBox Api'
+    description: 'no description'
+    version: '1.0.0'
     enable_fos_user: true
     mapping:
         paths: ['%kernel.project_dir%/src/Entity']
+    oauth:
+        enabled: false
+        clientId: ''
+        clientSecret: ''
+        type: 'oauth2'
+        flow: 'password'
+        tokenUrl: '/oauth/v2/token'
+        authorizationUrl: '/oauth/v2/auth'
+        scopes: []
+framework:
+    form: { enabled: true }

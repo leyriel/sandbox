@@ -14,19 +14,17 @@ security:
             pattern:    ^/oauth/v2/token
             security:   false
         oauth_authorize:
+            entry_point: App\Service\TokenAuthenticator
             pattern:    ^/oauth/v2/auth
             form_login:
                 provider: fos_userbundle
                 check_path: /oauth/v2/auth_login_check
                 login_path: /oauth/v2/auth_login
-            guard:
-                authenticators:
-                    - App\Security\TokenAuthenticator
         api:
             pattern:    ^/api
             fos_oauth:  true
             stateless:  true
-            anonymous:  true # can be omitted as its default value
+            anonymous:  false # can be omitted as its default value
             # Add your favorite authentication process her
 
             # activate different ways to authenticate
