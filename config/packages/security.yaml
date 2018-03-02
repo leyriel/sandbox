@@ -10,11 +10,11 @@ security:
             security: false
         main:
             anonymous: ~
+            entry_point: App\Security\EntryPoint
         oauth_token:
             pattern:    ^/oauth/v2/token
             security:   false
         oauth_authorize:
-            entry_point: App\Service\TokenAuthenticator
             pattern:    ^/oauth/v2/auth
             form_login:
                 provider: fos_userbundle
@@ -25,7 +25,6 @@ security:
             fos_oauth:  true
             stateless:  true
             anonymous:  false # can be omitted as its default value
-            # Add your favorite authentication process her
 
             # activate different ways to authenticate
 
