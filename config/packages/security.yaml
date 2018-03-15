@@ -1,16 +1,28 @@
 security:
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
+
+    role_hierarchy:
+        ROLE_USER: ROLE_USER
+        ROLE_ADMIN: [ROLE_USER, ROLE_ADMIN]
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_SUPER_ADMIN]
+
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username
     firewalls:
+        api:
+            pattern:    ^/api
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  false # can be omitted as its default value
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: ~
             entry_point: App\Security\EntryPoint
+            security:   false
         oauth_token:
             pattern:    ^/oauth/v2/token
             security:   false
@@ -20,11 +32,6 @@ security:
                 provider: fos_userbundle
                 check_path: /oauth/v2/auth_login_check
                 login_path: /oauth/v2/auth_login
-        api:
-            pattern:    ^/api
-            fos_oauth:  true
-            stateless:  true
-            anonymous:  false # can be omitted as its default value
 
             # activate different ways to authenticate
 
@@ -39,5 +46,5 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
         - { path: ^/oauth/v2/auth_login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }

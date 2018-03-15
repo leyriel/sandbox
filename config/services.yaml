@@ -27,5 +27,27 @@ services:
         resource: '../src/Service'
         tags: ['service.service_arguments']
 
+    fos_oauth_server.server:
+        class: OAuth2\OAuth2
+        autowire: true
+        public: true
+        arguments:
+            $storage: '@fos_oauth_server.storage'
+
+    fos_oauth_server.controller.token:
+        class: FOS\OAuthServerBundle\Controller\TokenController
+        autowire: true
+        public: true
+        arguments:
+            $server: '@fos_oauth_server.server'
+
+    App\Command\CreateOauthClientCommand:
+        arguments:
+            $client_manager: '@fos_oauth_server.client_manager.default'
+
+    OAuth2\OAuth2:
+        alias: 'fos_oauth_server.server'
+        public: true
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
