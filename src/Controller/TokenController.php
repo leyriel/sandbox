@@ -10,9 +10,8 @@ namespace App\Controller;
 
 use FOS\OAuthServerBundle\Controller\TokenController as BaseController;
 use Symfony\Component\HttpFoundation\Request;
-use OAuth2\OAuth2;
-use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 
 class TokenController extends BaseController
@@ -27,7 +26,7 @@ class TokenController extends BaseController
         $data = (array)$request->getContent();
         $content = (array)json_decode($data[0]);
 
-        $paramBag = new \Symfony\Component\HttpFoundation\ParameterBag;
+        $paramBag = new ParameterBag();
         $paramBag->add($content);
 
         $request->request = $paramBag;

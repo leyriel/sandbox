@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Serializer\Annotation\Groups;
+use FOS\UserBundle\Model\UserInterface;
 
 
 /**
@@ -20,8 +22,44 @@ class User extends BaseUser
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @Groups({"user"})
+     */
+    protected $email;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"user"})
+     */
+    protected $fullname;
+
+    /**
+     * @Groups({"user-write"})
+     */
+    protected $plainPassword;
+
+    /**
+     * @Groups({"user"})
+     */
+    protected $username;
+
+    public function setFullname(?string $fullname): void
+    {
+        $this->fullname = $fullname;
+    }
+
+    public function getFullname(): ?string
+    {
+        return $this->fullname;
+    }
+
+    public function isUser(?UserInterface $user = null): bool
+    {
+        return $user instanceof self && $user->id === $this->id;
+    }
 }
