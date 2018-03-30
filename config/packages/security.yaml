@@ -11,18 +11,16 @@ security:
         fos_userbundle:
             id: fos_user.user_provider.username_email
     firewalls:
-        api:
+        main:
             pattern:    ^/api
             fos_oauth:  true
             stateless:  true
+            entry_point: App\Security\EntryPoint
             anonymous:  false # can be omitted as its default value
+            #methods: [PUT, POST, DELETE]
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            anonymous: ~
-            entry_point: App\Security\EntryPoint
-            security:   false
         oauth_token:
             pattern:    ^/oauth/v2/token
             security:   false
@@ -46,5 +44,3 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/oauth/v2/auth_login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
