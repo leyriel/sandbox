@@ -8,37 +8,30 @@
 
 namespace App\EventListener\Security;
 
-use FOS\OAuthServerBundle\Event\OAuthEvent;
-
+use App\Service\UserAuthentificationService;
+use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
 class OAuthEventListener
 {
-    public function onPreAuthorizationProcess(OAuthEvent $event)
+    private $authentificator;
+
+    public function __construct(UserAuthentificationService $_authentificationService)
     {
-        die('pre');
-        if ($user = $this->getUser($event)) {
-            $event->setAuthorizedClient(
-                $user->isAuthorizedClient($event->getClient())
-            );
-        }
+        $this->authentificator = $_authentificationService;
     }
 
-    public function onPostAuthorizationProcess(OAuthEvent $event)
+    public function onPreAuthorizationProcess(FilterResponseEvent $event){}
+
+    public function onPostAuthorizationProcess(FilterResponseEvent $event)
     {
-        die('post');
-        if ($event->isAuthorizedClient()) {
-            if (null !== $client = $event->getClient()) {
-                $user = $this->getUser($event);
-                $user->addClient($client);
-                $user->save();
-            }
+        $uri = $event->getRequest()->getRequestUri();
+
+        if ($uri == "/oauth/v2/token")
+        {
+            $this->authentificator->setEvent($event);
         }
+
+        return $event;
     }
 
-    protected function getUser(OAuthEvent $event)
-    {
-        return UserQuery::create()
-            ->filterByUsername($event->getUser()->getUsername())
-            ->findOne();
-    }
 }
