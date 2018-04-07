@@ -9,11 +9,29 @@ use Symfony\Component\Validator\Constraints as Assert;
 use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Component\Serializer\Annotation\Groups;
 use FOS\UserBundle\Model\UserInterface;
-
+use App\Controller\UserSpecial;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @ApiResource(attributes={
+ * @ApiResource(
+ *     collectionOperations={
+ *     "get"={"method"="GET", "access_control"="is_granted('ROLE_ADMIN')"},
+ *     "post"={"method"="POST"},
+ *     "special"={
+ *          "method"="POST",
+ *          "_format"="json",
+ *          "name"="user_change_password",
+ *          "path"="/user/change-password",
+ *          "controller"=UserSpecial::class
+ *     }
+ *
+ * },
+ *     itemOperations={
+ *     "get"={"method"="GET"},
+ *     "put"={"method"="PUT"},
+ *     "delete"={"method"="DELETE"}
+ * },
+ *     attributes={
  *     "normalization_context"={"groups"={"user", "user-read"}},
  *     "denormalization_context"={"groups"={"user", "user-write"}}
  * })
@@ -47,6 +65,12 @@ class User extends BaseUser
      * @Groups({"user"})
      */
     protected $username;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->roles = array('ROLE_USER');
+    }
 
     public function setFullname(?string $fullname): void
     {

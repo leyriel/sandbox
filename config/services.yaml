@@ -49,5 +49,11 @@ services:
         alias: 'fos_oauth_server.server'
         public: true
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+# Event Listeners
+    oauth_event_listener:
+        class:  App\EventListener\Security\OAuthEventListener
+        public: true
+        autowire: true
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onPostAuthorizationProcess }
+
