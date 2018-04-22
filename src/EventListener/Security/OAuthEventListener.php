@@ -28,7 +28,7 @@ class OAuthEventListener
 
         if ($uri == "/oauth/v2/token")
         {
-            $this->authentificator->setEvent($event);
+            return $this->authentificator->setEvent($event);
         }
 
         return $event;

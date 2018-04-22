@@ -27,13 +27,11 @@ class EntryPoint implements AuthenticationEntryPointInterface
 
     public function start(Request $request, AuthenticationException $authException = null)
     {
-        $oAuth = $this->container->get('OAuth2\OAuth2');
-
-        $response = new Response(
+        return $response = new Response(
             '{"error":{"code":'.Response::HTTP_UNAUTHORIZED.',"message":"Hey, Get out bro..."}}',
             Response::HTTP_UNAUTHORIZED,
             array('Content-Type'=>'application/json'));
-        return $response;
+
     }
 
 }

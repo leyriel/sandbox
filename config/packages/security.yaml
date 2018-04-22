@@ -11,7 +11,7 @@ security:
         fos_userbundle:
             id: fos_user.user_provider.username_email
     firewalls:
-        main:
+        api:
             pattern:    ^/api
             fos_oauth:  true
             stateless:  true
