@@ -27,9 +27,9 @@ use App\Controller\UserSpecial;
  *
  * },
  *     itemOperations={
- *     "get"={"method"="GET"},
- *     "put"={"method"="PUT"},
- *     "delete"={"method"="DELETE"}
+ *     "get"={"method"="GET", "access_control"="is_granted('ROLE_ADMIN') or object == user"},
+ *     "put"={"method"="PUT", "access_control"="is_granted('ROLE_ADMIN') or object == user"},
+ *     "delete"={"method"="DELETE", "access_control"="is_granted('ROLE_ADMIN')"}
  * },
  *     attributes={
  *     "normalization_context"={"groups"={"user", "user-read"}},

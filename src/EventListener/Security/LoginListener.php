@@ -14,6 +14,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class LoginListener
@@ -29,7 +30,6 @@ class LoginListener
 
     public function onAuthenticationSuccess(InteractiveLoginEvent $event)
     {
-
         $userManager = $this->container->get('fos_user.user_manager');
         $user = $userManager->findUserByUsername($this->container->get('security.token_storage')
             ->getToken()

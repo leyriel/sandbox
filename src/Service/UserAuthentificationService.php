@@ -27,17 +27,25 @@ class UserAuthentificationService
         $this->entityManager = $_entityManager;
     }
 
-    public function setEvent($event)
+    public function auth($event)
     {
         $tokenResponseContent = json_decode($event->getResponse()->getContent());
-        $tokenRequestContent = json_decode($event->getRequest()->getContent());
+        $tokenRequestContent  = json_decode($event->getRequest()->getContent());
+        $userManager          = $this->container->get('fos_user.user_manager');
 
         if (property_exists($tokenResponseContent, "error"))
         {
             return $event;
         }
 
-        return $this->authenticate($tokenRequestContent->username, $tokenRequestContent->password, $event);
+        $authenticate = $this->authenticate($tokenRequestContent->username, $tokenRequestContent->password, $event);
+
+        $arrayContent = json_decode($authenticate->getResponse()->getContent());
+        $arrayContent->user = $userManager->findUserByUsername($this->container->get('security.token_storage')->getToken()->getUser());
+
+        $authenticate->getResponse()->setContent(json_encode($arrayContent));
+
+        return $authenticate;
     }
 
     public function authenticate($username, $password, $event = null)
