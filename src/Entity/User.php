@@ -29,7 +29,14 @@ use App\Controller\UserSpecial;
  *     itemOperations={
  *     "get"={"method"="GET", "access_control"="is_granted('ROLE_ADMIN') or object == user"},
  *     "put"={"method"="PUT", "access_control"="is_granted('ROLE_ADMIN') or object == user"},
- *     "delete"={"method"="DELETE", "access_control"="is_granted('ROLE_ADMIN')"}
+ *     "delete"={"method"="DELETE", "access_control"="is_granted('ROLE_ADMIN')"},
+ *     "special"={
+ *          "method"="GET",
+ *          "_format"="json",
+ *          "name"="current_user",
+ *          "path"="/user/current",
+ *          "controller"=UserSpecial::class
+ *     }
  * },
  *     attributes={
  *     "normalization_context"={"groups"={"user", "user-read"}},
