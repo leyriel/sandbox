@@ -41,7 +41,8 @@ class UserAuthentificationService
         $authenticate = $this->authenticate($tokenRequestContent->username, $tokenRequestContent->password, $event);
 
         $arrayContent = json_decode($authenticate->getResponse()->getContent());
-        $arrayContent->user = $userManager->findUserByUsername($this->container->get('security.token_storage')->getToken()->getUser());
+
+        $arrayContent->userId = $userManager->findUserByUsername($this->container->get('security.token_storage')->getToken()->getUser())->getId();
 
         $authenticate->getResponse()->setContent(json_encode($arrayContent));
 

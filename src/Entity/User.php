@@ -17,7 +17,7 @@ use App\Controller\UserSpecial;
  *     collectionOperations={
  *     "get"={"method"="GET", "access_control"="is_granted('ROLE_ADMIN')"},
  *     "post"={"method"="POST", "access_control"="is_granted('ROLE_ADMIN')"},
- *     "special"={
+ *     "changePassword"={
  *          "method"="POST",
  *          "_format"="json",
  *          "name"="user_change_password",
@@ -28,15 +28,16 @@ use App\Controller\UserSpecial;
  * },
  *     itemOperations={
  *     "get"={"method"="GET", "access_control"="is_granted('ROLE_ADMIN') or object == user"},
- *     "put"={"method"="PUT", "access_control"="is_granted('ROLE_ADMIN') or object == user"},
- *     "delete"={"method"="DELETE", "access_control"="is_granted('ROLE_ADMIN')"},
- *     "special"={
- *          "method"="GET",
+ *     "currentUser"={
+ *          "method"="get",
  *          "_format"="json",
  *          "name"="current_user",
- *          "path"="/user/current",
- *          "controller"=UserSpecial::class
- *     }
+ *          "path"="/user/{id}/current",
+ *          "controller"=UserSpecial::class,
+ *          "requirements"={},
+ *     },
+ *     "put"={"method"="PUT", "access_control"="is_granted('ROLE_ADMIN') or object == user"},
+ *     "delete"={"method"="DELETE", "access_control"="is_granted('ROLE_ADMIN')"},
  * },
  *     attributes={
  *     "normalization_context"={"groups"={"user", "user-read"}},
