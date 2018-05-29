@@ -16,12 +16,12 @@ use App\Controller\UserSpecial;
  * @ApiResource(
  *     collectionOperations={
  *     "get"={"method"="GET", "access_control"="is_granted('ROLE_ADMIN')"},
- *     "post"={"method"="POST", "access_control"="is_granted('ROLE_ADMIN')"},
- *     "changePassword"={
+ *     "post"={"method"="POST", "access_control"="is_granted('ROLE_ADMIN') or object == user"},
+ *     "currentUserSession"={
  *          "method"="POST",
  *          "_format"="json",
- *          "name"="user_change_password",
- *          "path"="/user/change-password",
+ *          "name"="get_current_user_session",
+ *          "path"="/current/user",
  *          "controller"=UserSpecial::class
  *     }
  *
