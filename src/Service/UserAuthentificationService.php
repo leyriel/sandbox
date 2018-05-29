@@ -15,11 +15,11 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use App\Entity\User;
 
-
 class UserAuthentificationService
 {
     private $container;
     private $entityManager;
+    private $user;
 
     public function __construct(ContainerInterface $_container, EntityManagerInterface $_entityManager)
     {
@@ -31,7 +31,6 @@ class UserAuthentificationService
     {
         $tokenResponseContent = json_decode($event->getResponse()->getContent());
         $tokenRequestContent  = json_decode($event->getRequest()->getContent());
-        $userManager          = $this->container->get('fos_user.user_manager');
 
         if (property_exists($tokenResponseContent, "error"))
         {
@@ -40,9 +39,15 @@ class UserAuthentificationService
 
         $authenticate = $this->authenticate($tokenRequestContent->username, $tokenRequestContent->password, $event);
 
+        // IF CUSTOMER ATTEMPTED TO LOGIN IN ADMIN APP
+        if ($this->user->getRoles()[0] !== "ROLE_SUPER_ADMIN" AND substr($tokenRequestContent->client_id, 2) == "client_admin") {
+            $event->setResponse(new Response(json_encode('HTTP_UNAUTHORIZED'), Response::HTTP_UNAUTHORIZED, array('Content-type' => 'application/json')));
+            return $event;
+        }
+
         $arrayContent = json_decode($authenticate->getResponse()->getContent());
 
-        $arrayContent->userId = $userManager->findUserByUsername($this->container->get('security.token_storage')->getToken()->getUser())->getId();
+        $arrayContent->userId = $this->user->getId();
 
         $authenticate->getResponse()->setContent(json_encode($arrayContent));
 
@@ -51,30 +56,30 @@ class UserAuthentificationService
 
     public function authenticate($username, $password, $event = null)
     {
-        $user = $this->entityManager->getRepository(User::class)->findOneBy(['username' => $username]);
+        $this->user = $this->entityManager->getRepository(User::class)->findOneBy(['username' => $username]);
         $factory = $this->container->get('security.encoder_factory');
 
-        if (is_null($user))
+        if (is_null($this->user))
         {
-            $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $username]);
+            $this->user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $username]);
         }
 
-        if(is_null($user))
+        if(is_null($this->user))
         {
             $event->setResponse(new Response(json_encode('User not found.'), Response::HTTP_UNAUTHORIZED, array('Content-type' => 'application/json')));
             return $event;
         }
 
-        $encoder = $factory->getEncoder($user);
-        $salt = $user->getSalt();
+        $encoder = $factory->getEncoder($this->user);
+        $salt = $this->user->getSalt();
 
-        if(!$encoder->isPasswordValid($user->getPassword(), $password, $salt)) {
+        if(!$encoder->isPasswordValid($this->user->getPassword(), $password, $salt)) {
 
             $event->setResponse(new Response(json_encode('Username or Password not valid.'), Response::HTTP_UNAUTHORIZED, array('Content-type' => 'application/json')));
             return $event;
         }
 
-        $token = new UsernamePasswordToken($user, null, 'oauth_token', $user->getRoles());
+        $token = new UsernamePasswordToken($this->user, null, 'oauth_token', $this->user->getRoles());
 
 
         $this->container->get('security.token_storage')->setToken($token);

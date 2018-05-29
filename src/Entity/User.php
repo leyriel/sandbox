@@ -34,7 +34,7 @@ use App\Controller\UserSpecial;
  *          "name"="current_user",
  *          "path"="/user/{id}/current",
  *          "controller"=UserSpecial::class,
- *          "requirements"={},
+ *          "access_control"="is_granted('ROLE_ADMIN') or object == user"
  *     },
  *     "put"={"method"="PUT", "access_control"="is_granted('ROLE_ADMIN') or object == user"},
  *     "delete"={"method"="DELETE", "access_control"="is_granted('ROLE_ADMIN')"},
